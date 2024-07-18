@@ -1,0 +1,59 @@
+﻿
+@model string
+
+@if (Model != null)
+{
+    <div class="alert alert-@(ViewBag.TypeAlert)" role="alert" style="margin: 1% 10%;">
+        @Model
+    </div>
+}
+
+<!-- Pills content -->
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register" style=" max-width: 100%; display: flex; justify-content: center; ">
+        <form action="/Account/Register" method="post" style="width : 80%;">
+            <h1 style="margin-top: 5%;" class="text-center">Register new account</h1>
+
+            <!-- Name input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="registerName">Name</label>
+                <input type="text" id="registerName" class="form-control" name="fullname" required/>
+            </div>
+
+            <!-- Username input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="registerUsername">Username</label>
+                <input type="text" id="registerUsername" class="form-control" name="username" required/>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" class="form-control" name="email" required/>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" class="form-control" name="password" required/>
+            </div>
+
+            <!-- Repeat Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                <input type="password" id="registerRepeatPassword" class="form-control" name="repassword" required/>
+            </div>
+
+            <!-- Term -->
+            <div class="form-check  mb-4" style="display: flex; justify-content: center; flex-direction: column;">
+                <label class="form-label" >
+                    Bằng việc đăng ký, bạn đã đồng ý với <a href="#">Điều khoản dịch vụ</a> của chúng tôi.
+                </label>
+            </div>
+
+            <!-- Submit button -->
+            <button style="margin-bottom: 5% !important;" type="submit" class="btn btn-primary btn-block mb-3">Register</button>
+        </form>
+    </div>
+</div>
+<!-- Pills content -->

@@ -1,0 +1,80 @@
+﻿@model List<SellingShop.Models.hoadon>
+
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Order</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/MyPham">Shop</a></li>
+                    <li class="breadcrumb-item active">Order</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-center">
+                                <th>ID đơn hàng</th>
+                                <th>Địa chỉ</th>
+                                <th>Shipping</th>
+                                <th>Trạng thái</th>
+                                <th>Tổng tiền</th>
+                                <th class="text-center">Ngày tạo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(SellingShop.Models.hoadon hd in Model)
+                            {
+                                <tr>
+                                    <td class="thumbnail-img">
+                                        <a href="/Account/ViewOrder?id=@hd.ID" class="text-center" style="width: 100%;display: block;">@hd.ID</a>
+                                    </td>
+                                    <td class="name-pr">
+                                        <p class="text-center">
+                                            @hd.Address
+                                        </p>
+                                    </td>
+                                    <td class="price-pr">
+                                        <p class="text-center">
+                                            @hd.Shipping
+                                        </p>
+                                    </td>
+                                    <td class="quantity-box">
+                                        <p class="text-center">
+                                            @hd.Status
+                                        </p>
+                                    </td>
+                                    <td class="total-pr">
+                                        <p class="text-center">
+                                            $ @hd.Total
+                                        </p>
+                                    </td>
+                                    <td class="remove-pr">
+                                        <p class="text-center">
+                                            @String.Format("{0:dd/MM/yyyy}", hd.DateCreate)
+                                        </p>
+                                    </td>
+                                </tr>
+                            }
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

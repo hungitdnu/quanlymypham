@@ -1,0 +1,37 @@
+﻿@model string 
+
+@if (Model != null)
+{
+    <div class="alert alert-@(ViewBag.TypeAlert == null ? "danger" : ViewBag.TypeAlert )" role="alert" style="margin: 1% 10%;">
+        @Model
+    </div>
+}
+<!-- Pills content -->
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login" style=" max-width: 100%; display: flex; justify-content: center; ">
+        <form style="width : 80%;" action="/Account/Login" method="post">
+            <h1 style="margin-top: 10%;" class="text-center">Sign in</h1>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="loginName">Email or username</label>
+                <input type="text" id="loginName" class="form-control" name="username"/>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <label class="form-label" for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-control" name="password"/>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+                <p style="margin-bottom: 10%;">Not a member? <a href="/Account/Register">Register</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Pills content -->

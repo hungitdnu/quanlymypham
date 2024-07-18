@@ -1,0 +1,55 @@
+﻿@model SellingShop.Models.mypham
+
+<div class="shop-detail-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-5 col-lg-5 col-md-6">
+                <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="/Content/images/myphams/@Model.ImageTitle" style="width:415px !important;height:490px !important;">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-7 col-md-6">
+                <div class="single-product-details">
+                    <h2>@Model.TenMP</h2>
+                    <h5> <del>$ @Model.GiaGoc</del> $@Model.GiaSale</h5>
+                    <p class="available-stock"><span> Available @Model.SoLuong / <a href="#">@Model.DaBan sold </a></span></p><p>
+                    </p><h4>Short Description:</h4>
+                    <p>
+                        @Model.MoTa
+                    </p>
+                    <form action="/Account/AddProduct" method="get">
+                        <ul>
+                            <li>
+                                <div class="form-group quantity-box">
+                                    <label class="control-label">Quantity</label>
+                                    <input class="form-control" value="1" min="1" max="@Model.SoLuong" type="number" name="sl">
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="price-box-bar">
+                            <div class="cart-and-bay-btn">
+                                <input type="submit" class="btn hvr-hover" data-fancybox-close="" value="Add to cart" style=" padding: 20px 12px; line-height: calc(100% - 20px); box-sizing: border-box;">
+                                <input type="hidden" name="id" value="@Model.ID">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="add-to-btn">
+                        <div class="add-comp">
+
+                            <a class="btn btn-primary" href="/MyPham/Edit?id=@Model.ID">
+                                <i class="fas fa-heart"></i> Edit this product
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

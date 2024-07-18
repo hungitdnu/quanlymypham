@@ -1,0 +1,42 @@
+﻿<form action="/MyPham/Add" method="post" enctype="multipart/form-data">
+    <div class="shop-detail-box-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-7 col-lg-7 col-md-6">
+                    <div class="single-product-details">
+                        <h3>Tenmypham : </h3>
+                        <input class="form-control" style="max-width : 80%;" name="Tenmypham">
+                        <div style="margin: 1% 0;">
+                            <h3>Giá gốc : </h3>
+                            <input class="form-control" style="max-width : 80%;" name="GiaGoc">
+                        </div>
+                        <div style="margin: 1% 0;">
+                            <h3>Giá sale : </h3>
+                            <input class="form-control" style="max-width : 80%;" name="GiaSale">
+                        </div>
+                        <h4>Short Description:</h4>
+                        <textarea class="form-control" rows="4" cols="55" name="MoTa"></textarea>
+                        <ul style="margin: 2% 0;">
+                            <li>
+                                <div class="form-group quantity-box">
+                                    <label class="control-label">Số lượng</label>
+                                    <input class="form-control" value="1" min="1" max="10000" type="number" name="SoLuong">
+                                </div>
+                            </li>
+                        </ul>
+                        <div style="margin : 1% 0;">
+                            <h3>Ảnh</h3>
+                            <input style=" padding: 5px; line-height: 1;" class="form-control" type="file" id="formFile" name="formFile" required>
+                        </div>
+                        <div class="price-box-bar">
+                            <div class="cart-and-bay-btn">
+                                <input style=" padding: 10px 30px;" type="submit" class="btn btn-primary" value="Add">
+                                <a class="btn btn-secondary" href="/">Back to Home</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

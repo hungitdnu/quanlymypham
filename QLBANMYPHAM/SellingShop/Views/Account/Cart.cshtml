@@ -1,0 +1,114 @@
+﻿@model List<string>   
+
+@{ 
+    double total = 0.0;
+}
+ <!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Cart</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/MyPham">Shop</a></li>
+                    <li class="breadcrumb-item active">Cart</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr class="text-center">
+                                <th>Images</th>
+                                <th>Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (string item in Model)
+                            {
+                                try
+                                {
+                                    var currentID = int.Parse(item.Split(':')[0]);
+                                    var currentQuantity = int.Parse(item.Split(':')[1]);
+                                    var CurrentMyPham = StaticObject.qlbmp.myphams.FirstOrDefault(m => m.ID == currentID);
+                                    total += CurrentMyPham.GiaSale * currentQuantity;
+                                    <tr>
+                                        <td class="thumbnail-img">
+                                            <a href="/MyPham/ViewMyPham?id=@currentID">
+                                                <img class="img-fluid" src="~/Content/images/myphams/@(CurrentMyPham.ImageTitle)" alt="" style="height : 96px;width : 96px;"/>
+                                            </a>
+                                        </td>
+                                        <td class="name-pr">
+                                            <a href="/MyPham/ViewMyPham?id=@currentID">
+                                                @CurrentMyPham.TenMP
+                                            </a>
+                                        </td>
+                                        <td class="price-pr">
+                                            <p><del>$ @CurrentMyPham.GiaGoc</del> $ @CurrentMyPham.GiaSale</p>
+                                        </td>
+                                        <td class="quantity-box"><input type="number" size="4" value="@currentQuantity" min="0" step="1" max="10000" class="c-input-text qty text" disabled></td>
+                                        <td class="total-pr">
+                                            <p>$ @Math.Round(CurrentMyPham.GiaSale * currentQuantity,2)</p>
+                                        </td>
+                                        <td class="remove-pr">
+                                            <a href="/Account/RemoveCart?id=@currentID">
+                                                <i class="fas fa-times"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                                catch
+                                {
+
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-lg-8 col-sm-12"></div>
+            <div class="col-lg-4 col-sm-12">
+                <div class="order-box">
+                    <h3>Order summary</h3>
+                    <div class="d-flex">
+                        <h4>Sub Total</h4>
+                        <div class="ml-auto font-weight-bold"> $ @total </div>
+                    </div>
+                    <div class="d-flex">
+                        <h4>Discount</h4>
+                        <div class="ml-auto font-weight-bold"> $ @(Math.Round(total/10,2)) </div>
+                    </div>
+                    <hr class="my-1">
+                    <div class="d-flex">
+                        <h4>Shipping Cost</h4>
+                        <div class="ml-auto font-weight-bold"> Free </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex gr-total">
+                        <h5>Grand Total</h5>
+                        <div class="ml-auto h5"> $ @(Math.Round(total*0.9,1)) </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-12 d-flex shopping-box"><a href="/Account/Checkout" class="ml-auto btn hvr-hover">Checkout</a> </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Cart -->

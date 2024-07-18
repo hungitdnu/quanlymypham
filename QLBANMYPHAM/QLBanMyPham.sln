@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLBanMyPham", "SellingShop\QLBanMyPham.csproj", "{F88947F8-B852-40A2-A1F0-8BF67261F43B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F88947F8-B852-40A2-A1F0-8BF67261F43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F88947F8-B852-40A2-A1F0-8BF67261F43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F88947F8-B852-40A2-A1F0-8BF67261F43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F88947F8-B852-40A2-A1F0-8BF67261F43B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C02CB17F-70A9-4183-A092-F52EF7DA7FC7}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,150 @@
+﻿@model SellingShop.Models.account
+
+@{
+    ViewBag.Title = $"{StaticObject.ProjectName} - EditProfile";
+}
+
+<form action="~/Account/SubmitProfile" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="@Model.username.Trim()" name="profile" />
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><h1>Thông tin cá nhân</h1></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="~/Content/images/avatars/@Model.image" alt="avatar" id="avatar" class="rounded-circle img-fluid avatar" style="width: 150px;">
+                            <div class="input-group mb-3 mt-3" style="">
+
+                                <div class="custom-file" style="">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile01" accept="image/*" name="FileUpload">
+                                    <label class="custom-file-label" for="inputGroupFile01"> Choose a file </label>
+                                </div>
+                            </div><h5 class="my-3">Đại Học Đại Nam</h5>
+                            <input class="form-control" value="@Model.job.Trim()" name="job" />
+                            <p class="text-muted mb-4">@Model.address.Trim()</p>
+
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush rounded-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fas fa-globe fa-lg text-warning"></i>
+                                    <input class="form-control" value="@Model.website.Trim()" style="max-width: 80%;" name="website">
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                                    <input class="form-control" value="@Model.facebook.Trim()" style="max-width: 80%;" name="facebook">
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                    <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                                    <input class="form-control" value="@Model.instagram.Trim()" style="max-width: 80%;" name="instagram">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Full Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="@Model.fullname" style="max-width: 80%;" name="fullname">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" value="@Model.email" style="max-width: 80%;" name="email">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Phone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="@Model.phone" style="max-width: 80%;" name="phone">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Birth</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true" style="max-width : 80%;">
+                                        <input placeholder="Select date" type="date" id="example" class="form-control" name="birth">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control" value="@Model.address" style="max-width: 80%;" name="address">
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div class="col-sm-9">
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="submit" class="btn btn-primary" value="Edit">
+                                    <a href="/Account/ViewProfile?profile=@Model.username.Trim()" class="btn btn-danger">Cancel</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <a href="/Account/Cart"> <i class="fa fa-gift"></i> </a>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h4>Your Orders</h4>
+                                        <p>Track, return, or buy things again</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="account-box">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <a href="#"><i class="fa fa-lock"></i> </a>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h4>Login &amp; security</h4>
+                                        <p>Edit login, name, and mobile number</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>

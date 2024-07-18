@@ -1,0 +1,137 @@
+﻿@model List<SellingShop.Models.mypham>
+
+@{ 
+    ViewBag.Title = "Home - MyPhamShop";
+}
+<!-- Feadtued Categories -->
+
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <img src="~/Content/images/categories/category-1.jpg">
+            </div>
+            <div class="col-3">
+                <img src="~/Content/images/categories/category-2.jpg">
+            </div>
+            <div class="col-3">
+                <img src="~/Content/images/categories/category-3.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Products -->
+
+<div class="small-container">
+    <h2 class="title">Latest Products</h2>
+    @for(int i = 0; i<2; i++)
+    {
+        <div class="row">
+            @for (int j = 0; j < 3; j++)
+            {
+                <div class="col-4">
+                    <img style="max-height : 200px; max-width : 200px;" src="~/Content/images/myphams/@Model[i * 3 + j].ImageTitle" onclick="window.open('/MyPham/ViewMyPham?id=@Model[i * 3 + j].ID')">
+                    <h4>@Model[i * 3 + j].TenMP</h4>
+                    <p>$@Model[i * 3 + j].GiaSale</p>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<!-- Offer -->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Content/images/exclusive.png" class="offer-img">
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on MyPhamShop</p>
+                <h1>Son boutique</h1>
+                <small>
+                    Là loại son được sản xuất trên dây chuyền công nghệ cao, chống trôi và giá thành tốt nhất bạn từng thấy.<br>
+                </small>
+                <a href="products.html" class="btn">Buy Now &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Testimonial -->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Sản phẩm tốt, giá thành rẻ. Nên mua mọi người nhé.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <img src="~/Content/images/user-1.png">
+                <h3>Nguyen Ngoc Huong</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Chăm sóc khách hàng tốt, nhân viên nhiệt tình, sản phẩm chất lượng. Mua cho ny rất thích.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <img src="~/Content/images/user-2.png">
+                <h3>Nguyen An</h3>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <p>
+                    Sản phẩm tốt, giá thành rẻ. Nên mua mọi người nhé.
+                </p>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </div>
+                <img src="~/Content/images/user-3.png">
+                <h3>Nguyen Bich Ngoc</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Brands -->
+
+<div class="brands">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="~/Content/images/logo-godrej.png">
+            </div>
+            <div class="col-2">
+                <img src="~/Content/images/logo-oppo.png">
+            </div>
+            <div class="col-2">
+                <img src="~/Content/images/logo-coca-cola.png">
+            </div>
+            <div class="col-2">
+                <img src="~/Content/images/logo-paypal.png">
+            </div>
+            <div class="col-2">
+                <img src="~/Content/images/logo-philips.png">
+            </div>
+        </div>
+    </div>
+</div>

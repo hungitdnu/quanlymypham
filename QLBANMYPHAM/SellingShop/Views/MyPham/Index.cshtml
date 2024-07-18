@@ -1,0 +1,126 @@
+﻿@model List<SellingShop.Models.mypham>
+
+@{
+    ViewBag.Title = "Library - page " + ViewBag.CurrentPage;
+}
+
+<!-- Start All Title Box -->
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Shop</h2>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active">Shop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+<!-- Start Shop Page  -->
+<div class="shop-box-inner">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+                <div class="right-product-box">
+                    <div class="product-categorie-box">
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
+                                <div class="row">
+                                    @foreach(SellingShop.Models.mypham bk in Model)
+                                    {
+                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                            <div class="products-single fix">
+                                                <div class="box-img-hover">
+                                                    <div class="type-lb">
+                                                        <p class="sale">@(bk.SoLuong < 20 ? "Hot" : "Sale")</p>
+                                                    </div>
+                                                    <img src="~/Content/images/myphams/@bk.ImageTitle" class="img-fluid" style="height: 300px;width : 300px;" alt="Image">
+                                                    <div class="mask-icon">
+                                                        <ul>
+                                                            <li><a href="/MyPham/ViewMyPham?id=@bk.ID" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                        </ul>
+                                                        <a class="cart" href="/Account/AddProduct?id=@bk.ID">Add to Cart</a>
+                                                    </div>
+                                                </div>
+                                                <div class="why-text">
+                                                    <h4>@(bk.TenMP.Length > 30 ? bk.TenMP.Substring(0,27) + "..." : bk.TenMP)</h4>
+                                                    <h5> $@bk.GiaSale</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+
+                            </div>
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="/MyPham/Index?page=@(ViewBag.CurrentPage-1)">Previous</a></li>
+                                    @if (ViewBag.MaxPage <= 3)
+                                    {
+                                        for (int i = 1; i<=ViewBag.MaxPage; ++i)
+                                        {
+                                            <li class="page-item">
+                                                <a class="page-link" href="/MyPham/Index?page=@i">@i</a>
+                                            </li>
+                                        }
+                                    }
+                                    else
+                                    {
+
+                                        <li class="page-item"><a class="page-link" href="/MyPham/Index?page=1">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="/MyPham/Index?page=2">2</a></li>
+                                        <li class="page-item"><p class="page-link">...</p></li>
+                                        <li class="page-item"><a class="page-link" href="/MyPham/Index?page=@ViewBag.MaxPage">@ViewBag.MaxPage</a></li>
+                                    }
+
+                                    <li class="page-item"><a class="page-link" href="/MyPham/Index?page=@(ViewBag.CurrentPage+1)">Next</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
+                <div class="product-categori">
+                    <div class="search-product">
+                        <form action="/MyPham/Search" method="post">
+                            <input class="form-control" name="keyword" placeholder="Search here..." type="text">
+                            <button type="submit"> <i class="fa fa-search"></i> </button>
+                        </form>
+                    </div>
+                    <div class="filter-sidebar-left">
+                        <div class="title-left">
+                            <h3>Danh mục</h3>
+                        </div>
+                        <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
+                            <a href="/MyPham/FilterByCategory?category=0" class="list-group-item list-group-item-action">Xoá bộ lọc</a>
+                            @foreach (SellingShop.Models.theloai tl in ViewBag.categories)
+                            {
+                                <a href="/MyPham/FilterByCategory?category=@tl.ID" class="list-group-item list-group-item-action">@tl.TenTheLoai</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Shop Page -->
+
+<script src="~Content/js/bootstrap-select.js"></script>
+<script src="~Content/js/inewsticker.js"></script>
+<script src="~Content/js/bootsnav.js."></script>
+<script src="~Content/js/images-loded.min.js"></script>
+<script src="~Content/js/isotope.min.js"></script>
+<script src="~Content/js/owl.carousel.min.js"></script>
+<script src="~Content/js/baguetteBox.min.js"></script>
+<script src="~Content/js/jquery-ui.js"></script>
+<script src="~Content/js/jquery.nicescroll.min.js"></script>
+<script src="~Content/js/form-validator.min.js"></script>
+<script src="~Content/js/contact-form-script.js"></script>
+<script src="~Content/js/custom.js"></script>
+<script src="~Content/js/jquery.superslides.min.js"></script>
